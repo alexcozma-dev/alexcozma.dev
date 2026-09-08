@@ -23,3 +23,7 @@ npm run preview  # serve the build locally
 ## Deploys
 
 Pushes to `main` build and deploy automatically via Cloudflare Pages.
+
+## Colophon
+
+Built with AI assistance (Claude Code).
