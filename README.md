@@ -1,4 +1,4 @@
-# alexcozma-site
+# alexcozma.dev
 
 Personal site and portfolio for Alex Cozma.
 
