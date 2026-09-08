@@ -1,0 +1,38 @@
+---
+const today = new Date();
+---
+
+<footer>
+	<p>
+		&copy; {today.getFullYear()} Alex Cozma
+		<span class="links">
+			<a href="https://github.com/alexcozma" target="_blank" rel="noopener noreferrer">GitHub</a>
+			<a href="mailto:contact@alexcozma.dev">Email</a>
+		</span>
+	</p>
+</footer>
+<style>
+	footer {
+		padding: 3em 1em 4em 1em;
+		max-width: 640px;
+		margin: 0 auto;
+		color: rgb(var(--gray));
+	}
+	p {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5em 1em;
+		align-items: baseline;
+		margin: 0;
+	}
+	.links {
+		display: flex;
+		gap: 1em;
+	}
+	.links a {
+		color: rgb(var(--gray));
+	}
+	.links a:hover {
+		color: rgb(var(--black));
+	}
+</style>

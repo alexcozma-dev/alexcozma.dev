@@ -1,0 +1,69 @@
+---
+import Prose from './Prose.astro';
+
+interface Props {
+	title: string;
+	description: string;
+	pubDate: Date;
+	updatedDate?: Date;
+	stack: string[];
+	status: 'in-progress' | 'completed' | 'archived';
+	github?: string;
+}
+
+const { title, description, pubDate, updatedDate, stack, status, github } = Astro.props;
+
+const statusLabel = {
+	'in-progress': 'In progress',
+	completed: 'Completed',
+	archived: 'Archived',
+}[status];
+---
+
+<Prose title={title} description={description} pubDate={pubDate} updatedDate={updatedDate}>
+	<dl class="meta" slot="meta">
+		{
+			stack.length > 0 && (
+				<div>
+					<dt>Stack</dt>
+					<dd>{stack.join(', ')}</dd>
+				</div>
+			)
+		}
+		<div>
+			<dt>Status</dt>
+			<dd>{statusLabel}</dd>
+		</div>
+		{
+			github && (
+				<div>
+					<dt>Code</dt>
+					<dd><a href={github} target="_blank" rel="noopener noreferrer">{github.replace('https://', '')}</a></dd>
+				</div>
+			)
+		}
+	</dl>
+	<slot />
+</Prose>
+
+<style>
+	.meta {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.25rem 1.5rem;
+		margin: 0 0 2em 0;
+		padding: 0.75em 0;
+		border-top: 1px solid rgb(var(--gray-light));
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	.meta div {
+		display: flex;
+		gap: 0.4em;
+	}
+	.meta dt {
+		color: rgb(var(--gray));
+	}
+	.meta dd {
+		margin: 0;
+	}
+</style>

@@ -1,0 +1,34 @@
+---
+import Prose from '../layouts/Prose.astro';
+
+const pdfPath = '/alex-cozma-resume.pdf';
+const svgPath = '/alex-cozma-resume.svg';
+---
+
+<Prose title="Resume" description="Resume for Alex Cozma">
+	<p>
+		<a class="download" href={pdfPath} download>Download PDF</a>
+	</p>
+
+	<img class="resume-page" src={svgPath} alt="Alex Cozma resume" />
+</Prose>
+
+<style>
+	.download {
+		display: inline-block;
+		font-weight: 700;
+		text-decoration: underline;
+		text-decoration-color: rgb(var(--gray-light));
+	}
+	.download:hover {
+		text-decoration-color: currentColor;
+	}
+	.resume-page {
+		display: block;
+		width: 100%;
+		height: auto;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 4px;
+		box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+	}
+</style>
