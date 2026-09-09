@@ -1,4 +1,5 @@
 ---
+import { STATUS_LABELS, type ProjectStatus } from '../consts';
 import Prose from './Prose.astro';
 
 interface Props {
@@ -7,17 +8,13 @@ interface Props {
 	pubDate: Date;
 	updatedDate?: Date;
 	stack: string[];
-	status: 'in-progress' | 'completed' | 'archived';
+	status: ProjectStatus;
 	github?: string;
 }
 
 const { title, description, pubDate, updatedDate, stack, status, github } = Astro.props;
 
-const statusLabel = {
-	'in-progress': 'In progress',
-	completed: 'Completed',
-	archived: 'Archived',
-}[status];
+const statusLabel = STATUS_LABELS[status];
 ---
 
 <Prose title={title} description={description} pubDate={pubDate} updatedDate={updatedDate}>

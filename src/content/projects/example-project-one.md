@@ -1,7 +1,7 @@
 ---
 title: '[Project name]'
 description: '[One-sentence summary of what this project is and why it exists]'
-pubDate: 'Jun 01 2024'
+pubDate: '2024-06-01'
 stack: ['Python', 'PyTorch']
 status: 'completed'
 github: 'https://github.com/alexcozma-dev/example-project-one'

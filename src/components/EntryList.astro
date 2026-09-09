@@ -1,0 +1,74 @@
+---
+import FormattedDate from './FormattedDate.astro';
+
+interface Entry {
+	href: string;
+	title: string;
+	/** Rendered as a <time> element. Use for dated entries like writing. */
+	date?: Date;
+	/** Free-form trailing text, used instead of a date. */
+	meta?: string;
+}
+
+interface Props {
+	entries: Entry[];
+}
+
+const { entries } = Astro.props;
+---
+
+<ul class="entry-list">
+	{
+		entries.map((entry) => (
+			<li>
+				<a href={entry.href}>
+					<span class="entry-title">{entry.title}</span>
+					{entry.date && (
+						<span class="entry-date">
+							<FormattedDate date={entry.date} />
+						</span>
+					)}
+					{entry.meta && <span class="entry-meta">{entry.meta}</span>}
+				</a>
+			</li>
+		))
+	}
+</ul>
+
+<style>
+	.entry-list {
+		list-style: none;
+		margin: 0;
+		padding: 0;
+	}
+	.entry-list li + li {
+		border-top: 1px solid rgb(var(--gray-light));
+	}
+	.entry-list a {
+		display: flex;
+		flex-wrap: wrap;
+		justify-content: space-between;
+		gap: 0.25em 1em;
+		padding: 0.85em 0;
+		text-decoration: none;
+	}
+	.entry-list a:hover .entry-title {
+		text-decoration: underline;
+	}
+	.entry-title {
+		color: rgb(var(--black));
+		font-weight: 600;
+	}
+	.entry-date,
+	.entry-meta {
+		color: rgb(var(--gray));
+		white-space: nowrap;
+	}
+
+	@media (max-width: 720px) {
+		.entry-list a {
+			flex-direction: column;
+			gap: 0.15em;
+		}
+	}
+</style>

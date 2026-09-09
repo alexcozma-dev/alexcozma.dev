@@ -1,5 +1,4 @@
 :root {
-	--accent: #1a1a1a;
 	--black: 15, 18, 25;
 	--gray: 110, 110, 110;
 	--gray-light: 225, 225, 225;
@@ -74,9 +73,6 @@ p {
 .prose p {
 	margin-bottom: 1.5em;
 }
-.intro .currently {
-	color: rgb(var(--gray-dark));
-}
 textarea {
 	width: 100%;
 	font-size: 16px;
@@ -116,36 +112,6 @@ hr {
 	margin: 1.5em 0;
 }
 
-/* Structured lists used by the homepage, /projects, and /writing */
-.entry-list {
-	list-style: none;
-	margin: 0;
-	padding: 0;
-}
-.entry-list li + li {
-	border-top: 1px solid rgb(var(--gray-light));
-}
-.entry-list a {
-	display: flex;
-	flex-wrap: wrap;
-	justify-content: space-between;
-	gap: 0.25em 1em;
-	padding: 0.85em 0;
-	text-decoration: none;
-}
-.entry-list a:hover .entry-title {
-	text-decoration: underline;
-}
-.entry-title {
-	color: rgb(var(--black));
-	font-weight: 600;
-}
-.entry-date,
-.entry-meta {
-	color: rgb(var(--gray));
-	white-space: nowrap;
-}
-
 @media (max-width: 720px) {
 	body {
 		font-size: 17px;
@@ -153,22 +119,4 @@ hr {
 	main {
 		padding: 1.5em 1em 3em 1em;
 	}
-	.entry-list a {
-		flex-direction: column;
-		gap: 0.15em;
-	}
-}
-
-.sr-only {
-	border: 0;
-	padding: 0;
-	margin: 0;
-	position: absolute !important;
-	height: 1px;
-	width: 1px;
-	overflow: hidden;
-	clip: rect(1px 1px 1px 1px);
-	clip: rect(1px, 1px, 1px, 1px);
-	clip-path: inset(50%);
-	white-space: nowrap;
 }

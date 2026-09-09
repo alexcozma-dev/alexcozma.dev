@@ -1,23 +1,18 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import EntryList from '../components/EntryList.astro';
 import Footer from '../components/Footer.astro';
-import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
-import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+import { projectMeta, SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 import { getCollection } from 'astro:content';
 
-const statusLabel = {
-	'in-progress': 'In progress',
-	completed: 'Completed',
-	archived: 'Archived',
-};
-
-const projects = (await getCollection('projects')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
-const posts = (await getCollection('writing')).sort(
-	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
-);
+// The full lists live at /projects and /writing; the homepage shows the latest few.
+const projects = (await getCollection('projects'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 5);
+const posts = (await getCollection('writing'))
+	.sort((a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf())
+	.slice(0, 5);
 ---
 
 <!doctype html>
@@ -41,38 +36,24 @@ const posts = (await getCollection('writing')).sort(
 
 			<section>
 				<h2>Things I've built</h2>
-				<ul class="entry-list">
-					{
-						projects.map((project) => (
-							<li>
-								<a href={`/projects/${project.id}/`}>
-									<span class="entry-title">{project.data.title}</span>
-									<span class="entry-meta">
-										{project.data.stack.join(', ')}
-										{project.data.stack.length > 0 && ' · '}
-										{statusLabel[project.data.status]}
-									</span>
-								</a>
-							</li>
-						))
-					}
-				</ul>
+				<EntryList
+					entries={projects.map((project) => ({
+						href: `/projects/${project.id}/`,
+						title: project.data.title,
+						meta: projectMeta(project.data.stack, project.data.status),
+					}))}
+				/>
 			</section>
 
 			<section>
 				<h2>Writing</h2>
-				<ul class="entry-list">
-					{
-						posts.map((post) => (
-							<li>
-								<a href={`/writing/${post.id}/`}>
-									<span class="entry-title">{post.data.title}</span>
-									<span class="entry-date"><FormattedDate date={post.data.pubDate} /></span>
-								</a>
-							</li>
-						))
-					}
-				</ul>
+				<EntryList
+					entries={posts.map((post) => ({
+						href: `/writing/${post.id}/`,
+						title: post.data.title,
+						date: post.data.pubDate,
+					}))}
+				/>
 			</section>
 		</main>
 		<Footer />

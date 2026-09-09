@@ -1,7 +1,7 @@
 ---
 title: '[Another project name]'
 description: '[One-sentence summary of what this project is and why it exists]'
-pubDate: 'Jan 15 2025'
+pubDate: '2025-01-15'
 stack: ['C++', 'Arduino']
 status: 'in-progress'
 ---
