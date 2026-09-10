@@ -3,10 +3,18 @@
 	// Must match the Workers project name in the Cloudflare dashboard.
 	"name": "alexcozma-dev",
 	"compatibility_date": "2026-09-10",
+	// Serve on <name>.<account>.workers.dev. Set to false once alexcozma.dev is
+	// attached as a custom domain, or the site answers on two URLs at once.
+	"workers_dev": true,
+	// Versioned preview URLs for non-production branches.
+	"preview_urls": true,
 	// Static-only site: no `main` entry point, just the built output served
 	// straight from Cloudflare's edge.
 	"assets": {
 		"directory": "./dist",
+		// Canonical URLs and the sitemap both emit trailing slashes, so enforce
+		// the same form here. Requests to /about get a 307 to /about/.
+		"html_handling": "force-trailing-slash",
 		// Serve dist/404.html on unmatched routes. Without this the custom 404
 		// page is built but never used.
 		"not_found_handling": "404-page"
