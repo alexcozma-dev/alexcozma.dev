@@ -7,7 +7,7 @@ Live at [alexcozma.dev](https://alexcozma.dev).
 ## Stack
 
 - [Astro](https://astro.build) — static output, content collections for projects and writing
-- Cloudflare Pages — hosting and CDN
+- Cloudflare Workers — static assets served from the edge, configured in `wrangler.jsonc`
 - MDX, RSS, and sitemap via the official Astro integrations
 - Atkinson Hyperlegible, self-hosted
 
@@ -22,7 +22,12 @@ npm run preview  # serve the build locally
 
 ## Deploys
 
-Pushes to `main` build and deploy automatically via Cloudflare Pages.
+Pushes to `main` build and deploy automatically via Cloudflare Workers Builds.
+Other branches get preview deployments at their own URLs.
+
+Deploy settings live in `wrangler.jsonc` rather than the Cloudflare dashboard,
+so they are version controlled alongside the site. `npm run deploy` publishes
+the current build by hand.
 
 ## Colophon
 

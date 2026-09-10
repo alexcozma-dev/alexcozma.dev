@@ -1,0 +1,14 @@
+{
+	"$schema": "node_modules/wrangler/config-schema.json",
+	// Must match the Workers project name in the Cloudflare dashboard.
+	"name": "alexcozma-dev",
+	"compatibility_date": "2026-09-10",
+	// Static-only site: no `main` entry point, just the built output served
+	// straight from Cloudflare's edge.
+	"assets": {
+		"directory": "./dist",
+		// Serve dist/404.html on unmatched routes. Without this the custom 404
+		// page is built but never used.
+		"not_found_handling": "404-page"
+	}
+}
