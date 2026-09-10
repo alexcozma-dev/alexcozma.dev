@@ -29,6 +29,12 @@ Deploy settings live in `wrangler.jsonc` rather than the Cloudflare dashboard,
 so they are version controlled alongside the site. `npm run deploy` publishes
 the current build by hand.
 
+## License
+
+The source code is MIT licensed — see `LICENSE`. The site's written content and
+the resume are not; see `LICENSE-CONTENT`. The Atkinson Hyperlegible font files
+are the Braille Institute's work, under their own terms.
+
 ## Colophon
 
 Built with AI assistance (Claude Code).

@@ -19,3 +19,20 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
+
+---
+
+Scope
+-----
+
+The MIT license above covers the source code of this site: the Astro
+components, layouts, styles, build configuration, and page structure.
+
+It does not cover:
+
+  - The written content of the site — the prose on its pages, everything under
+    src/content/, and the resume files in public/. See LICENSE-CONTENT.
+
+  - The Atkinson Hyperlegible font files in src/assets/fonts/, which are the
+    work of the Braille Institute of America and are redistributed under their
+    own license terms, not this one.

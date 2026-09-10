@@ -1,0 +1,16 @@
+Content License
+===============
+
+Copyright (c) 2026 Alexandru D. Cozma. All rights reserved.
+
+This covers the written content of this site: the prose on its pages,
+everything under src/content/, and the resume files in public/. It is
+deliberately separate from the MIT license in LICENSE, which covers the
+site's source code.
+
+You may read this content, link to it, and quote from it with attribution,
+as ordinary copyright already permits. You may not republish it in whole,
+present it as your own work, or redistribute the resume.
+
+The code that renders all of this is MIT licensed and free to reuse. If you
+want to build something from how this site works, take the code — see LICENSE.
