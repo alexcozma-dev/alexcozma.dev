@@ -6,13 +6,18 @@ import { SITE_TITLE } from '../consts';
 import { Font } from 'astro:assets';
 
 interface Props {
-	title: string;
+	/** Page name, e.g. "About". Omit on the homepage to use the site title alone. */
+	title?: string;
 	description: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
 const { title, description } = Astro.props;
+
+// Pages pass their own name; the site title is appended here so every page
+// is consistent and no page has to remember to do it.
+const documentTitle = title ? `${title} — ${SITE_TITLE}` : SITE_TITLE;
 ---
 
 <!-- Global Metadata -->
@@ -35,13 +40,13 @@ const { title, description } = Astro.props;
 <link rel="canonical" href={canonicalURL} />
 
 <!-- Primary Meta Tags -->
-<title>{title}</title>
+<title>{documentTitle}</title>
 <meta name="description" content={description} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
 <meta property="og:url" content={Astro.url} />
-<meta property="og:title" content={title} />
+<meta property="og:title" content={documentTitle} />
 <meta property="og:description" content={description} />
 
 <!-- Twitter -->
