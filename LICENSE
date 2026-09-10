@@ -35,4 +35,5 @@ It does not cover:
 
   - The Atkinson Hyperlegible font files in src/assets/fonts/, which are the
     work of the Braille Institute of America and are redistributed under their
-    own license terms, not this one.
+    own license, not this one. That license permits free use but forbids
+    derivatives or alteration. See src/assets/fonts/LICENSE.

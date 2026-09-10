@@ -33,7 +33,8 @@ the current build by hand.
 
 The source code is MIT licensed — see `LICENSE`. The site's written content and
 the resume are not; see `LICENSE-CONTENT`. The Atkinson Hyperlegible font files
-are the Braille Institute's work, under their own terms.
+are the Braille Institute's work, used unaltered under their own license — see
+`src/assets/fonts/LICENSE`.
 
 ## Colophon
 

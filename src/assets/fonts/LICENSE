@@ -1,0 +1,20 @@
+Atkinson Hyperlegible
+Version 1.002
+Copyright (c) 2020 Braille Institute of America, Inc., a 501(c)(3)
+Charitable Organization.
+
+License, quoted from the font files themselves (OpenType name ID 13):
+
+    Braille Institute of America, Inc. provides Atkinson Hyperlegible for
+    use, without derivatives or alteration, to the public free of charge
+    for all non-commercial and commercial work. No attribution required.
+
+This is the Braille Institute's own license, not the SIL Open Font License.
+The distinction matters: later releases of Atkinson Hyperlegible are
+published under the OFL via Google Fonts, and the OFL permits modification.
+These files, version 1.002, do not. Anyone reusing this repository's
+MIT-licensed code should not assume they may alter or subset these fonts.
+
+The build copies both files byte for byte into dist/_astro/fonts/ — no
+subsetting or transformation is applied, so what is served is the font as
+the Braille Institute published it.
